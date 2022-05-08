@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webfejl-pilu": {
+      "hosting": {
+        "week-04": [
+          "webfejl-pilu"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webfejl-pilu"
+  }
+}

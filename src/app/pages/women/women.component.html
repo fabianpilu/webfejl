@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            <h1 class="text-center">Product list</h1>
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                    
+                        <th class="text-center">ID</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td>{{ product.id }} </td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price + " $" }}</td>
+                        
+
+                        <td>
+                            <button type="button" class="btn btn-info btn-sm mr-2 "
+                                (click)="showEditProductFrom(product)">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                (click)="removeProduct(product)">Delete</button>
+
+                            <button type="button" class="btn btn-sm btn-primary" (click)="addtocart(product)">Add to cart</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-success" (click)="showAddProductForm()">Add new product</button>
+
+            <div class="mt-4">
+                <form *ngIf="productForm">
+                    <h2>Add new product</h2>
+                    <!--<p>Product id: <input type="text" name="productId" [(ngModel)]="newProduct.id" /></p>-->
+                    <p>Product name: <input type="text" name="productName" [(ngModel)]="newProduct.name" /></p>
+                    <p>Product price($): <input type="number" name="productPrice" [(ngModel)]="newProduct.price" /></p>
+                    <p>
+                        <button type="button" class="btn btn-primary mr-2"
+                            (click)="saveProduct(newProduct)">Submit</button>
+                        <button type="button" class="btn btn-warning" (click)="cancelNewProduct()">Cancel</button>
+                    </p>
+                </form>
+                <form *ngIf="editProductForm">
+                    <h2>Edit User Details</h2>
+                    <p>Product Name: <input type="text" name="firstName" [(ngModel)]="editedProduct.name" /></p>
+                    <p>Product Price: <input type="number" name="lastName" [(ngModel)]="editedProduct.price" /></p>
+                    <p>
+                        <button type="button" class="btn btn-primary mr-2" (click)="updateProduct()">Submit</button>
+                        <button type="button" class="btn btn-warning" (click)="cancelEdits()">Cancel</button>
+                    </p>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
